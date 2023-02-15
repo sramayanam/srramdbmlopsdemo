@@ -22,8 +22,8 @@ resource "databricks_job" "model_training_job" {
 
     new_cluster {
       num_workers   = 3
-      spark_version = "11.0.x-cpu-ml-scala2.12"
-      node_type_id  = "Standard_D3_v2"
+      spark_version = "11.3.x-cpu-ml-scala2.12"
+      node_type_id  = "Standard_D4a_v4"
       custom_tags   = { "clusterSource" = "mlops-stack/0.0" }
     }
   }
