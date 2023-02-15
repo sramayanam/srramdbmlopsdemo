@@ -57,6 +57,7 @@ jobs:
         id: output
         run: terraform -chdir=staging output -json
       - name: Commit Terraform Output to File
+        uses: actions/github-script@v6
         id: commit
         with:
           github-token: ${{ secrets.GHSECRET }}
