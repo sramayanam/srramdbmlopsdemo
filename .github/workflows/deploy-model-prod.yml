@@ -18,7 +18,7 @@ on:
 
 env:
   DATABRICKS_HOST: https://adb-6329546450638653.13.azuredatabricks.net
-  NODE_TYPE_ID: Standard_D3_v2
+  NODE_TYPE_ID: Standard_D4a_v4
   
 jobs:
   prod:
