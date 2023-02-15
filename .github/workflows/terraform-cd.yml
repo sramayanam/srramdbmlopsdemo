@@ -56,27 +56,6 @@ jobs:
       - name: Terraform Output
         id: output
         run: terraform -chdir=staging output -json
-      - name: Commit Terraform Output to File
-        uses: actions/github-script@v6
-        id: commit
-        with:
-          github-token: ${{ secrets.GHSECRET }}
-          script: |
-            mkdir -p output
-            echo '${{ steps.output.outputs.stdout }}' | jq '.' > output/staging.json
-            git config --global user.name 'Terraform Output Github Workflow'
-            git config --global user.email '<>'
-            output=$(git status --porcelain)
-            if [ -n "$output" ]
-            then
-              git add -A
-              git commit -m "Commit staging output"
-              git push
-              git fetch origin release
-              git checkout release
-              git cherry-pick main
-              git push
-            fi
   prod:
     concurrency: srram-db-mlops-demo-prod-terraform-job
     needs: staging
