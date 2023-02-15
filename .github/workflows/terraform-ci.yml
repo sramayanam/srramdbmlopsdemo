@@ -54,7 +54,7 @@ jobs:
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GHSECRET }}
           script: |
             const output = `#### Terraform Staging Format and Style 🖌 \`${{ steps.fmt.outcome }}\`
             #### Terraform Staging Initialization ⚙️ \`${{ steps.init.outcome }}\`
@@ -120,7 +120,7 @@ jobs:
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GHSECRET }}
           script: |
             const output = `#### Terraform Prod Format and Style 🖌 \`${{ steps.fmt.outcome }}\`
             #### Terraform Prod Initialization ⚙️ \`${{ steps.init.outcome }}\`
