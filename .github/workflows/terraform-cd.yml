@@ -61,7 +61,7 @@ jobs:
         id: commit
         with:
           github-token: ${{ secrets.GHSECRET }}
-          run: |
+          script: |
             mkdir -p output
             echo '${{ steps.output.outputs.stdout }}' | jq '.' > output/staging.json
             git config --global user.name 'Terraform Output Github Workflow'
